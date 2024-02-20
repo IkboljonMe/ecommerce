@@ -24,7 +24,7 @@ export default function AuthPage() {
         <div className="max-w-[400px] mx-auto px-2">
           <Auth
             onlyThirdPartyProviders
-            redirectTo={`${process.env.NEXT_PUBLIC_VERCEL_URL}/auth/callback`}
+            redirectTo={`${window.location.origin}/auth/callback`}
             supabaseClient={supabase}
             providers={["google"]}
             appearance={{ theme: ThemeSupa }}
