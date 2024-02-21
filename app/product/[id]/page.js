@@ -57,16 +57,13 @@ export default function Product({ params }) {
 
           <div className="w-full md:w-3/5">
             <div className="font-bold text-xl">{product?.title}</div>
-            <div className="text-sm text-gray-700 pt-2">
-              Brand New - Full Warranty
-            </div>
 
             <div className="border-b py-1" />
 
             <div className="pt-3 pb-2">
               <div className="flex items-center">
-                Condition:{" "}
-                <span className="font-bold text-[17px] ml-2">New</span>
+                In store:{" "}
+                <span className="font-bold text-[17px] ml-2">Yes</span>
               </div>
             </div>
 

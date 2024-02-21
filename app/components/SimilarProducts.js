@@ -38,7 +38,7 @@ export default function SimilarProducts() {
       <div className="border-b py-1 max-w-[1200px] mx-auto" />
       <div className="max-w-[1200px] mx-auto">
         <div className=" text-center justify-center font-bold text-2xl py-2 mt-4">
-          Similar sponsored items
+          Similar flowers
         </div>
         {isLoading ? (
           <div className="flex items-center justify-center gap-4 font-semibold">
