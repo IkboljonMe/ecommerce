@@ -2,7 +2,6 @@
 
 import TopMenu from "./includes/TopMenu";
 import MainHeader from "./includes/MainHeader";
-import SubMenu from "./includes/SubMenu";
 import Footer from "./includes/Footer";
 import Loading from "../components/Loading";
 import { useEffect, useState } from "react";
@@ -15,16 +14,18 @@ export default function MainLayout({ children }) {
       let res = localStorage.getItem("isLoading");
       res === "false" ? setIsLoading(false) : setIsLoading(true);
     });
-  });
+  }, []);
 
   return (
     <>
-      <div id="MainLayout" className="min-w-[1050px] max-w-[1300px] mx-auto">
+      <div
+        id="MainLayout"
+        className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div>
-          {isLoading ? <Loading /> : <div></div>}
+          {isLoading ? <Loading /> : null}
           <TopMenu />
           <MainHeader />
-          <SubMenu />
         </div>
 
         <div>{children}</div>
