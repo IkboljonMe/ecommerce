@@ -14,8 +14,7 @@ export default function Footer() {
       <div className="container mx-auto max-w-[1200px]">
         <div className="text-center text-gray-700 mt-8">
           <p className="text-sm">
-            &copy; {currentYear} Altug Can Altun (student: 39253). All rights
-            reserved.
+            &copy; {currentYear} Altug Can Altun . Educational purpose.
           </p>
         </div>
       </div>

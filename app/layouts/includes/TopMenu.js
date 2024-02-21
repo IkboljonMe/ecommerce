@@ -38,6 +38,7 @@ export default function TopMenu() {
         className="flex items-center gap-2 hover:underline cursor-pointer"
       >
         <div>Login</div>
+
         <BsChevronDown />
       </Link>
     );
@@ -49,7 +50,7 @@ export default function TopMenu() {
         <div className="flex items-center justify-between w-full mx-auto max-w-[1200px]">
           <ul
             id="TopMenuLeft"
-            className="flex items-center text-[11px] text-[#333333] px-2 h-8"
+            className="flex  gap-2 items-center text-[11px] text-[#333333] px-2 h-8"
           >
             <li className="relative px-3">
               {isLoggedIn()}
@@ -86,6 +87,12 @@ export default function TopMenu() {
                 </ul>
               </div>
             </li>
+            <li>
+              <Link href="/"> Home</Link>
+            </li>
+            <li>
+              <Link href="/"> About</Link>
+            </li>
           </ul>
 
           <ul
@@ -94,7 +101,7 @@ export default function TopMenu() {
           >
             <li
               onClick={() => router.push("/address")}
-              className="flex items-center gap-2 px-3 hover:underline cursor-pointer"
+              className="hidden md:flex  items-center gap-2 px-3 hover:underline cursor-pointer"
             >
               <img width={32} src="/images/PL.png" />
               Ship to
