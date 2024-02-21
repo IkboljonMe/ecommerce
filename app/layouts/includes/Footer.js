@@ -1,52 +1,24 @@
-'use client'
+"user client";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
-    return (
-        <>
-            <div id="Footer" className="border-t mt-20 px-2">
-                <div className="flex items-baseline justify-between w-full mx-auto max-w-[1200px] py-10">
-                    <ul className="text-gray-700">
-                        <li className="font-bold text-lg">Buy</li>
-                        <li className="mt-2 py-1 text-xs hover:underline cursor-pointer">Registration</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">eBay Money Back Guarantee</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">Bidding & buying help</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">Stores</li>
-                    </ul>
+  const [currentYear, setCurrentYear] = useState("");
 
-                    <ul className="text-gray-700">
-                        <li className="font-bold text-lg">Sell</li>
-                        <li className="mt-2 py-1 text-xs hover:underline cursor-pointer">Start selling</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">Learn to sell</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">Affiliates</li>
-                    </ul>
+  useEffect(() => {
+    const year = new Date().getFullYear();
+    setCurrentYear(year);
+  }, []);
 
-                    <ul className="text-gray-700">
-                        <li className="font-bold text-lg">About eBay</li>
-                        <li className="mt-2 py-1 text-xs hover:underline cursor-pointer">Company info</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">News</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">Investors</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">Carears</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">Government relations</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">Policies</li>
-                    </ul>
-
-                    <ul className="text-gray-700">
-                        <li className="font-bold text-lg">Sell</li>
-                        <li className="mt-2 py-1 text-xs hover:underline cursor-pointer">Start selling</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">Learn to sell</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">Affiliates</li>
-                    </ul>
-
-                    <ul className="text-gray-700">
-                        <li className="font-bold text-lg">Buy</li>
-                        <li className="mt-2 py-1 text-xs hover:underline cursor-pointer">Registration</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">eBay Money Back Guarantee</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">Bidding & buying help</li>
-                        <li className="py-1 text-xs hover:underline cursor-pointer">Stores</li>
-                    </ul>
-                </div>
-            </div>
-        </>
-    )
-  }
-  
+  return (
+    <footer id="Footer" className="border-t mt-20 px-2 bg-transparent py-6">
+      <div className="container mx-auto max-w-[1200px]">
+        <div className="text-center text-gray-700 mt-8">
+          <p className="text-sm">
+            &copy; {currentYear} Altug Can Altun (student: 39253). All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
