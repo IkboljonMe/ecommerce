@@ -7,11 +7,7 @@ export default function Product({ product }) {
     <Link href={`/product/${product?.id}`}>
       <div className="block max-w-[150px] p-1.5 border border-gray-50 hover:border-gray-200 hover:shadow-xl bg-gray-100 rounded mx-auto cursor-pointer">
         {product?.url && (
-          <img
-            className="rounded"
-            src={product.url + "/190"}
-            alt={product.title}
-          />
+          <img className="rounded" src={product.url} alt={product.title} />
         )}
         <div className="pt-2 px-1">
           <div className="font-semibold text-sm hover:underline">

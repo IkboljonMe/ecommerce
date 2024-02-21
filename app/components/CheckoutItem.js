@@ -8,10 +8,7 @@ export default function CheckoutItem({ product }) {
   return (
     <>
       <div className="flex justify-start rounded-lg mb-2 border p-4">
-        <img
-          className="rounded-md w-[150px] h-[150px]"
-          src={product.url + "/150"}
-        />
+        <img className="rounded-md w-[150px] h-[150px]" src={product.url} />
 
         <div className="overflow-hidden pl-2">
           <div className="font-semibold">{product.title}</div>

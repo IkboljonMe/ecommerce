@@ -47,7 +47,7 @@ export default function Product({ params }) {
             {product?.url ? (
               <img
                 className={`w-full h-auto rounded-lg object-cover md:max-w-[300px] lg:max-w-full`}
-                src={product?.url + "/280"}
+                src={product?.url}
                 alt={product.title}
               />
             ) : (

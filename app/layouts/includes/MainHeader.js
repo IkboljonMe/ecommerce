@@ -66,11 +66,7 @@ export default function MainLayout() {
                 <Link href={`/product/${item.id}`}>
                   <div className="flex items-center justify-between w-full cursor-pointer hover:bg-gray-200 p-1 px-2">
                     <div className="flex items-center">
-                      <img
-                        className="rounded-md"
-                        width="40"
-                        src={item.url + "/40"}
-                      />
+                      <img className="rounded-md" width="40" src={item.url} />
                       <div className="truncate ml-2">{item.title}</div>
                     </div>
                     <div className="truncate">

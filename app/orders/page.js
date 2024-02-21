@@ -88,7 +88,7 @@ export default function TopMenu() {
                           <img
                             className="rounded"
                             width="120"
-                            src={item.product.url + "/120"}
+                            src={item.product.url}
                           />
                           {item.product.title}
                         </Link>
