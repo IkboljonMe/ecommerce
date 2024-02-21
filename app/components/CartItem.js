@@ -17,29 +17,28 @@ export default function CartItem({ product }) {
 
   return (
     <>
-      <div className="relative flex justify-start my-2 border w-full p-6">
-        <img
-          src={product?.url + "/150"}
-          className="rounded-md w-[150px] h-[150px]"
-        />
+      <div className=" flex justify-start my-2 border w-full p-6">
+        <div className=" flex flex-row gap-3 justify-around w-full">
+          <div className="flex">
+            <img
+              src={product?.url + "/150"}
+              className="justify-start rounded sm:flex hidden"
+            />
+          </div>
 
-        <div className="overflow-hidden pl-2 w-full">
-          <div className="flex items-center justify-between w-full">
-            <div className="flex items-center font-semibold justify-between w-[400px] text-[16px] underline">
+          <div className="flex flex-col ">
+            <div className="font-semibold text-lg md:text-sm">
               {product?.title}
             </div>
-            <div className="font-bold text-lg">
-              {(product?.price / 100).toFixed(2)} PLN
+            <div className="text-sm mt-2 md:text-xs">
+              {product?.description.substring(0, 150)}...
             </div>
           </div>
-
-          <div className="font-semibold mt-2">NEW</div>
-
-          <div className="text-sm mt-2">
-            {product?.description.substring(0, 150)}...
+          <div className="font-bold flex justify-center  md:text-sm">
+            {(product?.price / 100).toFixed(2) + " PLN"}
           </div>
 
-          <div className="absolute right-0 bottom-0 p-4 text-sm">
+          <div className="flex justify-center text-sm">
             <button
               onClick={() => removeItemFromCart()}
               className="underline text-blue-500"

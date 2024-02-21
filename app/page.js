@@ -4,6 +4,7 @@ import CarouselComp from "./components/CarouselComp";
 import Product from "./components/Product";
 import MainLayout from "./layouts/MainLayout";
 import useIsLoading from "@/app/hooks/useIsLoading";
+import Typewriter from "typewriter-effect";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -29,9 +30,27 @@ export default function Home() {
 
   return (
     <MainLayout>
-      <CarouselComp />
       <div className="max-w-[1200px] mx-auto">
-        <div className="text-2xl font-bold mt-4 mb-6 px-4">Products</div>
+        <div className="py-4 flex justify-center text-2xl md:text-4xl font-bold mt-4 mb-6 px-4">
+          Welcome to &nbsp;<span className="italic font-thin">Flowy</span>
+        </div>
+        <div className="flex justify-center pb-10 text-xl md:text-3xl">
+          Where you can &nbsp; <span className="font-bold">buy</span> &nbsp;
+          <span className="italic text-rose-500 font-light">
+            <Typewriter
+              options={{
+                strings: [
+                  "Eternal roses",
+                  "Elegant bouquets",
+                  "Flowerboxy",
+                  "Premium Themes",
+                ],
+                autoStart: true,
+                loop: true,
+              }}
+            />
+          </span>
+        </div>
         {isLoading ? (
           <div>Loading products...</div>
         ) : (

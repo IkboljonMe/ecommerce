@@ -33,43 +33,51 @@ export default function Cart() {
       <MainLayout>
         <div className="max-w-[1200px] mx-auto mb-8 min-h-[300px]">
           <div className="text-2xl font-bold my-4">Shopping cart</div>
-          <div className="relative flex items-baseline justify-between gap-2">
+          <div className="flex justify-between  flex-col md:flex-row gap-4">
             <ClientOnly>
-              <div className="w-[65%]">
+              <div className="w-full ">
                 {cart.getCart().map((product) => (
                   <CartItem key={product.id} product={product} />
                 ))}
               </div>
             </ClientOnly>
 
-            <div
-              id="GoToCheckout"
-              className="md:w-[33%] absolute top-0 right-0 m-2"
-            >
+            <div className="flex justify-center">
               <ClientOnly>
-                <div className="bg-white p-4 border">
-                  <button
-                    onClick={() => goToCheckout()}
-                    className="flex items-center justify-center bg-blue-600 w-full text-white font-semibold p-3 rounded-full mt-4"
-                  >
-                    Go to checkout
-                  </button>
+                <div className="flex flex-col bg-white p-4 border rounded-xl">
+                  <p className="justify-center flex font-bold text-lg">
+                    Summary
+                  </p>
 
-                  <div className="flex items-center justify-between mt-4 text-sm mb-1">
+                  <div className="pt-3 flex items-center justify-between text-sm mb-4">
                     <div>Items ({cart.getCart().length})</div>
                     <div>{(cart.cartTotal() / 100).toFixed(2)} PLN</div>
                   </div>
-                  <div className="flex items-center justify-between mb-4 text-sm">
+                  <div className="flex items-center justify-between text-sm mb-4">
                     <div>Shipping:</div>
                     <div>Free</div>
                   </div>
 
-                  <div className="border-b border-gray-300" />
+                  <div className="border-b border-gray-300 mb-4" />
 
-                  <div className="flex items-center justify-between mt-4 mb-1 text-lg font-semibold">
-                    <div>Subtotal(VAT included)</div>
-                    <div>{(cart.cartTotal() / 100).toFixed(2)} PLN</div>
+                  <div className="flex items-center justify-between text-lg font-semibold">
+                    <div>Subtotal: </div>
+                    <div>
+                      {" " + (cart.cartTotal() / 100).toFixed(2) + " PLN"}{" "}
+                    </div>
                   </div>
+                  <button
+                    onClick={() => goToCheckout()}
+                    className="flex items-center justify-center bg-blue-600 w-full text-white font-semibold p-3 rounded-full mt-4 mb-4 md:hidden"
+                  >
+                    Go to checkout
+                  </button>
+                  <button
+                    onClick={() => goToCheckout()}
+                    className="hidden md:flex items-center justify-center bg-blue-600 w-full text-white font-semibold p-3 rounded-full mt-4"
+                  >
+                    Go to checkout
+                  </button>
                 </div>
               </ClientOnly>
             </div>

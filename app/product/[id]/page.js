@@ -2,29 +2,42 @@
 import MainLayout from "../../layouts/MainLayout";
 import SimilarProducts from "../../components/SimilarProducts";
 import { useEffect, useState } from "react";
-import useIsLoading from "../../hooks/useIsLoading";
 import { useCart } from "../../context/cart";
 import { toast } from "react-toastify";
 
 export default function Product({ params }) {
   const cart = useCart();
-
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [product, setProduct] = useState({});
 
   const getProduct = async () => {
-    useIsLoading(true);
-    setProduct({});
-
-    const response = await fetch(`/api/product/${params.id}`);
-    const prod = await response.json();
-    setProduct(prod);
-    cart.isItemAddedToCart(prod);
-    useIsLoading(false);
+    try {
+      const response = await fetch(`/api/product/${params.id}`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch product");
+      }
+      const prod = await response.json();
+      setProduct(prod);
+      cart.isItemAddedToCart(prod);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
     getProduct();
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <MainLayout>
@@ -33,13 +46,15 @@ export default function Product({ params }) {
           <div className="w-full md:w-2/5 md:mr-8 mb-4 md:mb-0">
             {product?.url ? (
               <img
-                className="w-full h-auto md:max-h-[400px] lg:max-h-[500px] rounded-lg"
+                className={`w-full h-auto rounded-lg object-cover md:max-w-[300px] lg:max-w-full`}
                 src={product?.url + "/280"}
+                alt={product.title}
               />
             ) : (
               <div className="w-full"></div>
             )}
           </div>
+
           <div className="w-full md:w-3/5">
             <div className="font-bold text-xl">{product?.title}</div>
             <div className="text-sm text-gray-700 pt-2">
@@ -62,7 +77,7 @@ export default function Product({ params }) {
                 <div className="flex items-center">
                   Price:
                   {product?.price ? (
-                    <div className="font-bold text-[20px] ml-2">
+                    <div className="font-bold text-[14px] ml-2">
                       {(product?.price / 100).toFixed(2)} PLN
                     </div>
                   ) : null}

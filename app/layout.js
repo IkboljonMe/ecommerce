@@ -5,8 +5,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export const dynamic = "force-dynamic";
 export const metadata = {
-  title: "eBay Clone",
-  description: "eBay Clone",
+  title: "Flowy",
+  description: "Flowy",
 };
 
 export default function RootLayout({ children }) {

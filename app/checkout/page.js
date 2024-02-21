@@ -1,5 +1,4 @@
 "use client";
-
 import CheckoutItem from "../components/CheckoutItem";
 import MainLayout from "../layouts/MainLayout";
 import Link from "next/link";
@@ -149,9 +148,9 @@ export default function Checkout() {
         <div id="CheckoutPage" className="mt-4 max-w-[1100px] mx-auto">
           <div className="text-2xl font-bold mt-4 mb-4">Checkout</div>
 
-          <div className="relative flex items-baseline gap-4 justify-between mx-auto w-full">
-            <div className="w-[65%]">
-              <div className="bg-white rounded-lg p-4 border">
+          <div className="relative flex flex-col items-center gap-4 mx-auto w-full md:flex-row">
+            <div className="w-full md:w-[65%]">
+              <div className="bg-white rounded-lg p-4 border w-full md:w-[90%]">
                 <div className="text-xl font-semibold mb-2">
                   Shipping Address
                 </div>
@@ -181,14 +180,12 @@ export default function Checkout() {
                       <AiOutlineLoading3Quarters className="animate-spin" />
                       Getting Address...
                     </div>
-                  ) : (
-                    <div></div>
-                  )}
+                  ) : null}
                 </div>
               </div>
 
               <ClientOnly>
-                <div id="Items" className="bg-white rounded-lg mt-4">
+                <div id="Items" className="bg-white rounded-lg mt-4 w-full">
                   {cart.getCart().map((product) => (
                     <CheckoutItem key={product.id} product={product} />
                   ))}
@@ -198,7 +195,7 @@ export default function Checkout() {
 
             <div
               id="PlaceOrder"
-              className="relative -top-[6px] w-[35%] border rounded-lg"
+              className="w-full md:w-[35%] border rounded-lg"
             >
               <ClientOnly>
                 <div className="p-4">
@@ -243,7 +240,6 @@ export default function Checkout() {
               </ClientOnly>
 
               <div className="flex items-center p-4 justify-center gap-2 border-t">
-                <img width={50} src="/images/logo.svg" />
                 <div className=" font-light mb-2 mt-2">
                   MONEY BACK GUARANTEE
                 </div>

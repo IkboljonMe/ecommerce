@@ -46,7 +46,7 @@ export default function MainLayout() {
             <input
               className="w-full pl-10 pr-8 py-2 placeholder-gray-400 text-sm focus:outline-none"
               onChange={handleSearchName}
-              placeholder="Search for anything"
+              placeholder=""
               type="text"
             />
             {isSearching && (
@@ -58,16 +58,13 @@ export default function MainLayout() {
           <button className="bg-blue-600 text-sm font-semibold text-white px-6 py-2 ml-4">
             Search
           </button>
-          <div className="text-xs ml-4 hover:text-blue-500 cursor-pointer">
-            Advanced
-          </div>
         </nav>
         {items.length > 0 && (
           <div className="absolute bg-white max-w-[910px] mt-2 w-full border p-1">
             {items.map((item) => (
               <div className="p-1" key={item.id}>
                 <Link href={`/product/${item.id}`}>
-                  <a className="flex items-center justify-between w-full cursor-pointer hover:bg-gray-200 p-1 px-2">
+                  <div className="flex items-center justify-between w-full cursor-pointer hover:bg-gray-200 p-1 px-2">
                     <div className="flex items-center">
                       <img
                         className="rounded-md"
@@ -79,7 +76,7 @@ export default function MainLayout() {
                     <div className="truncate">
                       {(item.price / 100).toFixed(2)} PLN
                     </div>
-                  </a>
+                  </div>
                 </Link>
               </div>
             ))}
